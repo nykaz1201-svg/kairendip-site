@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kairendip 合同会社</title>
+<meta name="description" content="Kairendip 合同会社は、東京を拠点にAIプロダクトの企画・開発・運営を行う会社です。">
+<meta property="og:title" content="Kairendip 合同会社">
+<meta property="og:description" content="東京を拠点にAIプロダクトの企画・開発・運営を行う会社です。">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23F5A524'/%3E%3Cstop offset='.5' stop-color='%23FF6B6B'/%3E%3Cstop offset='1' stop-color='%236D5EF7'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M16 3l3.4 9.6L29 16l-9.6 3.4L16 29l-3.4-9.6L3 16l9.6-3.4z' fill='url(%23g)'/%3E%3C/svg%3E">
+
+<style>
+  :root{
+    --bg:#FBFAF8;
+    --surface:#FFFFFF;
+    --ink:#141210;
+    --ink-2:#3A3531;
+    --muted:#6E6862;
+    --line:#E9E4DD;
+    --line-soft:#F2EEE8;
+    --a1:#F5A524;
+    --a2:#FF6B6B;
+    --a3:#6D5EF7;
+    --maxw:1080px;
+    --r:16px;
+  }
+
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP","Yu Gothic Medium","Yu Gothic",Meiryo,system-ui,-apple-system,"Segoe UI",sans-serif;
+    font-size:16px;
+    line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    overflow-x:hidden;
+  }
+  img{max-width:100%}
+  a{color:inherit}
+
+  .wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+  /* ---------- shared bits ---------- */
+  .eyebrow{
+    font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--muted);font-weight:600;margin:0 0 18px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .eyebrow::before{
+    content:"";width:22px;height:1px;
+    background:linear-gradient(90deg,var(--a1),var(--a2),var(--a3));
+  }
+  .grad{
+    background:linear-gradient(100deg,var(--a1) 0%,var(--a2) 45%,var(--a3) 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .rule{height:1px;background:var(--line-soft);border:0;margin:0}
+
+  /* ---------- header ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(251,250,248,.82);
+    backdrop-filter:saturate(180%) blur(14px);
+    -webkit-backdrop-filter:saturate(180%) blur(14px);
+    border-bottom:1px solid transparent;
+    transition:border-color .3s ease;
+  }
+  header.scrolled{border-bottom-color:var(--line)}
+  .bar{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .logo{display:flex;align-items:center;gap:9px;text-decoration:none;font-weight:700;letter-spacing:.02em;font-size:16px}
+  .logo svg{display:block;filter:drop-shadow(0 0 6px rgba(245,165,36,.35))}
+  nav ul{display:flex;gap:30px;list-style:none;margin:0;padding:0}
+  nav a{
+    text-decoration:none;font-size:13.5px;color:var(--ink-2);font-weight:500;
+    position:relative;padding-bottom:2px;
+  }
+  nav a::after{
+    content:"";position:absolute;left:0;bottom:0;width:0;height:1px;
+    background:linear-gradient(90deg,var(--a1),var(--a2),var(--a3));
+    transition:width .28s ease;
+  }
+  nav a:hover::after{width:100%}
+  @media(max-width:700px){nav{display:none}}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;padding:120px 0 104px;overflow:hidden}
+  .glow{
+    position:absolute;pointer-events:none;border-radius:50%;
+    filter:blur(90px);opacity:.4;
+  }
+  .glow.a{width:520px;height:520px;top:-180px;left:-120px;background:radial-gradient(circle,rgba(245,165,36,.55),transparent 68%)}
+  .glow.b{width:600px;height:600px;top:-90px;right:-200px;background:radial-gradient(circle,rgba(109,94,247,.42),transparent 68%)}
+  .glow.c{width:420px;height:420px;top:180px;left:38%;background:radial-gradient(circle,rgba(255,107,107,.32),transparent 70%)}
+  .hero .wrap{position:relative;z-index:1}
+
+  h1{
+    font-size:clamp(34px,6.4vw,64px);
+    line-height:1.28;letter-spacing:-.01em;font-weight:700;
+    margin:0 0 26px;
+  }
+  .lede{
+    font-size:clamp(15px,1.6vw,17px);color:var(--ink-2);
+    max-width:41em;margin:0 0 40px;
+  }
+  .cta-row{display:flex;flex-wrap:wrap;gap:12px}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:13px 24px;border-radius:999px;text-decoration:none;
+    font-size:14px;font-weight:600;transition:transform .2s ease,box-shadow .2s ease,background .2s ease;
+  }
+  .btn-primary{background:var(--ink);color:#fff;box-shadow:0 2px 14px rgba(20,18,16,.16)}
+  .btn-primary:hover{transform:translateY(-1px);box-shadow:0 6px 22px rgba(20,18,16,.24)}
+  .btn-ghost{border:1px solid var(--line);color:var(--ink);background:rgba(255,255,255,.6)}
+  .btn-ghost:hover{background:#fff;transform:translateY(-1px)}
+  .btn .arw{transition:transform .2s ease}
+  .btn:hover .arw{transform:translateX(3px)}
+
+  /* ---------- sections ---------- */
+  section{padding:96px 0}
+  h2{
+    font-size:clamp(24px,3.4vw,36px);line-height:1.45;font-weight:700;
+    letter-spacing:-.005em;margin:0 0 22px;
+  }
+  .body-copy{font-size:16px;color:var(--ink-2);max-width:38em;margin:0}
+
+  /* about */
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+  @media(max-width:820px){.about-grid{grid-template-columns:1fr;gap:36px}}
+  .pillars{display:grid;gap:2px;background:var(--line-soft);border-radius:var(--r);overflow:hidden}
+  .pillar{background:var(--surface);padding:24px 26px}
+  .pillar h3{margin:0 0 6px;font-size:15px;font-weight:700}
+  .pillar span{display:block;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;font-weight:600}
+  .pillar p{margin:0;font-size:13.5px;color:var(--muted);line-height:1.8}
+
+  /* business */
+  .biz{display:grid;gap:22px}
+  .card{
+    background:var(--surface);border:1px solid var(--line);
+    border-radius:var(--r);padding:38px 38px 34px;position:relative;overflow:hidden;
+  }
+  .card::before{
+    content:"";position:absolute;inset:0 0 auto 0;height:2px;
+    background:linear-gradient(90deg,var(--a1),var(--a2),var(--a3));
+    opacity:0;transition:opacity .35s ease;
+  }
+  .card.lit::before{opacity:1}
+  @media(max-width:640px){.card{padding:28px 24px}}
+  .card-top{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:18px}
+  .card-name{font-size:22px;font-weight:700;margin:0;letter-spacing:.01em}
+  .card-kana{font-size:12.5px;color:var(--muted)}
+  .tag{
+    font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;
+    padding:5px 11px;border-radius:999px;
+  }
+  .tag-soon{
+    color:#8A5A00;background:linear-gradient(100deg,rgba(245,165,36,.18),rgba(255,107,107,.14));
+    border:1px solid rgba(245,165,36,.3);
+  }
+  .tag-plan{color:var(--muted);background:var(--line-soft);border:1px solid var(--line)}
+  .card p{margin:0 0 22px;color:var(--ink-2);font-size:15px;max-width:44em}
+  .feat{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:12px 28px}
+  @media(max-width:640px){.feat{grid-template-columns:1fr}}
+  .feat li{
+    font-size:13.5px;color:var(--ink-2);padding-left:20px;position:relative;line-height:1.7;
+  }
+  .feat li::before{
+    content:"";position:absolute;left:0;top:.62em;width:7px;height:7px;border-radius:50%;
+    background:linear-gradient(135deg,var(--a1),var(--a3));
+  }
+  .card-note{
+    margin:26px 0 0;padding-top:18px;border-top:1px solid var(--line-soft);
+    font-size:12.5px;color:var(--muted);
+  }
+
+  /* company table */
+  .co{border-top:1px solid var(--line)}
+  .co dl{margin:0}
+  .co .row{
+    display:grid;grid-template-columns:180px 1fr;gap:24px;
+    padding:20px 4px;border-bottom:1px solid var(--line-soft);
+  }
+  @media(max-width:640px){.co .row{grid-template-columns:1fr;gap:4px;padding:16px 4px}}
+  .co dt{font-size:13px;color:var(--muted);font-weight:600;margin:0}
+  .co dd{margin:0;font-size:15px;color:var(--ink)}
+  .co dd small{display:block;font-size:12.5px;color:var(--muted);margin-top:4px}
+
+  /* contact */
+  .contact-box{
+    background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
+    padding:52px 40px;text-align:center;position:relative;overflow:hidden;
+  }
+  @media(max-width:640px){.contact-box{padding:38px 24px}}
+  .contact-box .cglow{
+    position:absolute;width:420px;height:220px;left:50%;top:-120px;transform:translateX(-50%);
+    background:radial-gradient(ellipse,rgba(245,165,36,.3),rgba(109,94,247,.16) 50%,transparent 72%);
+    filter:blur(50px);pointer-events:none;
+  }
+  .contact-box > *{position:relative}
+  .contact-box h2{margin-bottom:12px}
+  .contact-box p{color:var(--muted);font-size:14.5px;margin:0 0 28px}
+
+  /* footer */
+  footer{border-top:1px solid var(--line);padding:36px 0 44px}
+  .foot{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+  .foot small{color:var(--muted);font-size:12.5px}
+
+  /* reveal — 既定は「表示済み」。JS が有効なときだけアニメーションを有効化する
+     （JS 無効・スクリーンショット・クローラでも本文が必ず見える状態を保つため） */
+  .js-reveal .rv:not(.in){opacity:0;transform:translateY(18px)}
+  .rv{transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}
+  @media(prefers-reduced-motion:reduce){
+    .js-reveal .rv:not(.in){opacity:1;transform:none}
+    .rv{transition:none}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<header id="hd">
+  <div class="wrap bar">
+    <a class="logo" href="#top">
+      <svg width="20" height="20" viewBox="0 0 32 32" aria-hidden="true">
+        <defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#F5A524"/><stop offset=".5" stop-color="#FF6B6B"/><stop offset="1" stop-color="#6D5EF7"/>
+        </linearGradient></defs>
+        <path d="M16 3l3.4 9.6L29 16l-9.6 3.4L16 29l-3.4-9.6L3 16l9.6-3.4z" fill="url(#lg)"/>
+      </svg>
+      Kairendip
+    </a>
+    <nav>
+      <ul>
+        <li><a href="#about">私たちについて</a></li>
+        <li><a href="#business">事業</a></li>
+        <li><a href="#company">会社概要</a></li>
+        <li><a href="#contact">お問い合わせ</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <div class="hero">
+    <div class="glow a"></div>
+    <div class="glow b"></div>
+    <div class="glow c"></div>
+    <div class="wrap">
+      <p class="eyebrow rv">Kairendip LLC — Tokyo</p>
+      <h1 class="rv">あたらしいきっかけを、<br><span class="grad">つくる</span>。</h1>
+      <p class="lede rv">
+        Kairendip 合同会社は、AI と人の可能性を掛け合わせ、新しい選択肢を生み出す会社です。<br>
+        テクノロジーによって、働くこと、選ぶこと、挑戦することをもっと自由に。<br>
+        一人ひとりの可能性が、より良い未来につながるサービスをつくっています。
+      </p>
+      <div class="cta-row rv">
+        <a class="btn btn-primary" href="#business">事業を見る <span class="arw">→</span></a>
+        <a class="btn btn-ghost" href="#company">会社概要</a>
+      </div>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <!-- ============ ABOUT ============ -->
+  <section id="about">
+    <div class="wrap about-grid">
+      <div class="rv">
+        <p class="eyebrow">About</p>
+        <h2>小さな灯りが、<br>人生を変えることがある。</h2>
+        <p class="body-copy">
+          何かを変えるのに必要なのは、大きな決断そのものよりも、その手前にある小さな気づきです。
+          けれど日々の忙しさのなかで、その気づきは形になる前に流れていってしまう。
+          <br><br>
+          私たちは、日々の対話のなかからその気づきを拾いあげ、
+          あとから見返せる形にしていくプロダクトをつくっています。
+        </p>
+      </div>
+      <div class="pillars rv">
+        <div class="pillar">
+          <span>Dialogue</span>
+          <h3>対話から始める</h3>
+          <p>入力フォームでも診断テストでもなく、ふだんの言葉のやりとりから理解していく。</p>
+        </div>
+        <div class="pillar">
+          <span>Memory</span>
+          <h3>記憶を積み重ねる</h3>
+          <p>一度きりの応答ではなく、話したことを覚えている。時間が経つほど精度が上がっていく。</p>
+        </div>
+        <div class="pillar">
+          <span>Nudge</span>
+          <h3>そっと背中を押す</h3>
+          <p>急かさない。必要なときに、必要なぶんだけ声をかける。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ============ BUSINESS ============ -->
+  <section id="business">
+    <div class="wrap">
+      <p class="eyebrow rv">Business</p>
+      <h2 class="rv" style="margin-bottom:44px">事業</h2>
+
+      <div class="biz">
+
+        <!-- ---- Kikkake ----
+             ⚠ 文言を編集する前に README.md の「編集時の禁止語」を必ず確認すること。 -->
+        <article class="card lit rv">
+          <div class="card-top">
+            <h3 class="card-name">Kikkake</h3>
+            <span class="card-kana">キッカケ</span>
+            <span class="tag tag-soon">Coming Soon</span>
+          </div>
+          <p>
+            毎日の会話から、あなたのことを覚えていく AI ライフパートナー。
+            仕事のこと、暮らしのこと、お金のこと、からだのこと——
+            ばらばらに見える出来事のつながりを理解して、朝と夜、あなたに声をかけます。
+            使うほどに、あなたを深く知っていく。
+          </p>
+          <ul class="feat">
+            <li>話すだけで、頭のなかが整理されていく</li>
+            <li>一度話したことを、忘れない</li>
+            <li>朝と夜、AI のほうから声をかける</li>
+            <li>iOS アプリ / Web の両方に対応予定</li>
+          </ul>
+          <p class="card-note">
+            <!-- ⚠ リリース時期は確定後に書き換えてください -->
+            2026年内リリース予定。現在プライベートベータを準備しています。
+          </p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ============ COMPANY ============ -->
+  <section id="company">
+    <div class="wrap">
+      <p class="eyebrow rv">Company</p>
+      <h2 class="rv" style="margin-bottom:36px">会社概要</h2>
+
+      <!-- ⚠ 連絡先メールアドレスのみ未設定。登記事項証明書と表記を照合してください -->
+      <div class="co rv">
+        <dl>
+          <div class="row"><dt>商号</dt><dd>Kairendip 合同会社<small>Kairendip LLC</small></dd></div>
+          <div class="row"><dt>設立</dt><dd>2026年（令和8年）6月29日</dd></div>
+          <!-- ⚠ 合同会社の登記上の役職は「代表社員」です。「代表取締役社長」は株式会社の役職なので
+               ここは代表社員としています。実際の登記に合わせて確認してください。 -->
+          <div class="row"><dt>代表社員</dt><dd>中村 幸子</dd></div>
+          <div class="row"><dt>所在地</dt><dd>〒189-0012<br>東京都東村山市萩山町3丁目28番地1-1012</dd></div>
+          <div class="row"><dt>資本金</dt><dd>500万円</dd></div>
+          <!-- ⚠ 登記の目的から抜粋。編集前に README.md の「事業内容欄の運用」を必ず確認すること。 -->
+          <div class="row">
+            <dt>事業内容</dt>
+            <dd>
+              AI（人工知能）を活用したシステムの企画、開発、販売及び運営<br>
+              Webサイトの企画、制作、販売、運営及び管理<br>
+              各種アプリケーションソフトの企画、制作、販売、運営及び管理<br>
+              インターネットを利用した各種情報提供サービス<br>
+              インターネットを利用したプラットフォームの企画、開発及び運営<br>
+              経営コンサルティング業務
+            </dd>
+          </div>
+          <div class="row"><dt>連絡先</dt><dd><a href="mailto:Salescontact@kairendip.com" style="text-decoration:none;border-bottom:1px solid var(--line)">Salescontact@kairendip.com</a></dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact" style="padding-top:24px">
+    <div class="wrap">
+      <div class="contact-box rv">
+        <div class="cglow"></div>
+        <h2>お問い合わせ</h2>
+        <p>事業・プロダクト・取材に関するご連絡はこちらから。</p>
+        <a class="btn btn-primary" href="mailto:Salescontact@kairendip.com">メールで問い合わせる <span class="arw">→</span></a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <a class="logo" href="#top" style="font-size:14px">
+      <svg width="16" height="16" viewBox="0 0 32 32" aria-hidden="true">
+        <defs><linearGradient id="lg2" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#F5A524"/><stop offset=".5" stop-color="#FF6B6B"/><stop offset="1" stop-color="#6D5EF7"/>
+        </linearGradient></defs>
+        <path d="M16 3l3.4 9.6L29 16l-9.6 3.4L16 29l-3.4-9.6L3 16l9.6-3.4z" fill="url(#lg2)"/>
+      </svg>
+      Kairendip
+    </a>
+    <small>© 2026 Kairendip 合同会社</small>
+  </div>
+</footer>
+
+<script>
+  // header hairline on scroll
+  var hd = document.getElementById('hd');
+  var onScroll = function(){ hd.classList.toggle('scrolled', window.scrollY > 8); };
+  onScroll();
+  window.addEventListener('scroll', onScroll, {passive:true});
+
+  // staggered reveal（IntersectionObserver がある環境でのみ有効化）
+  var items = document.querySelectorAll('.rv');
+  if ('IntersectionObserver' in window) {
+    document.documentElement.classList.add('js-reveal');
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e, i){
+        if (e.isIntersecting) {
+          var el = e.target;
+          setTimeout(function(){ el.classList.add('in'); }, i * 70);
+          io.unobserve(el);
+        }
+      });
+    }, {rootMargin:'0px 0px -8% 0px', threshold:0.08});
+    items.forEach(function(el){ io.observe(el); });
+  } else {
+    items.forEach(function(el){ el.classList.add('in'); });
+  }
+</script>
+
+</body>
+</html>
